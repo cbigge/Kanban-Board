@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="mainView" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cbpcmkanbanboard.MainController">
+   <children>
+      <VBox prefHeight="800.0" prefWidth="1600.0">
+         <children>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1600.0">
+               <children>
+                  <Pane prefWidth="266.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Backlog">
+                           <font>
+                              <Font name="Alef Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="backlogList" layoutY="52.0" onMouseClicked="#backlogClickItem" prefHeight="549.0" prefWidth="266.0">
+                           <columns>
+                              <TableColumn fx:id="backlogNameColumn" prefWidth="90.0" text="Name" />
+                              <TableColumn fx:id="backlogDescriptionColumn" prefWidth="175.0" text="Description" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </Pane>
+                  <Pane>
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Sprint Backlog">
+                           <font>
+                              <Font name="Alef Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="sprintList" layoutY="52.0" onMouseClicked="#sprintClickItem" prefHeight="549.0" prefWidth="266.0">
+                           <columns>
+                              <TableColumn fx:id="sprintNameColumn" editable="false" prefWidth="90.0" sortable="false" text="Name" />
+                              <TableColumn fx:id="sprintDescriptionColumn" editable="false" prefWidth="175.0" sortable="false" text="Description" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="549.0" prefWidth="266.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Developing">
+                           <font>
+                              <Font name="Alef Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="devList" layoutY="52.0" onMouseClicked="#devClickItem" prefHeight="549.0" prefWidth="266.0">
+                           <columns>
+                              <TableColumn fx:id="devNameColumn" editable="false" prefWidth="90.0" sortable="false" text="Name" />
+                              <TableColumn fx:id="devDescriptionColumn" editable="false" prefWidth="175.0" sortable="false" text="Description" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="549.0" prefWidth="266.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Testing">
+                           <font>
+                              <Font name="Alef Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="testingList" layoutY="52.0" onMouseClicked="#testClickItem" prefHeight="549.0" prefWidth="266.0">
+                           <columns>
+                              <TableColumn fx:id="testNameColumn" editable="false" prefWidth="90.0" sortable="false" text="Name" />
+                              <TableColumn fx:id="testDescriptionColumn" editable="false" prefWidth="175.0" sortable="false" text="Description" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="549.0" prefWidth="266.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Complete">
+                           <font>
+                              <Font name="Alef Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="doneList" layoutY="52.0" onMouseClicked="#doneClickItem" prefHeight="549.0" prefWidth="266.0">
+                           <columns>
+                              <TableColumn fx:id="doneNameColumn" editable="false" prefWidth="90.0" sortable="false" text="Name" />
+                              <TableColumn fx:id="doneDescriptionColumn" editable="false" prefWidth="175.0" sortable="false" text="Description" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="549.0" prefWidth="270.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Activity">
+                           <font>
+                              <Font name="Alef Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="activityList" layoutY="52.0" prefHeight="549.0" prefWidth="270.0" />
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+            <HBox prefHeight="200.0" prefWidth="1600.0">
+               <children>
+                  <TitledPane animated="false" collapsible="false" prefHeight="200.0" prefWidth="900.0" text="Controls">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="900.0">
+                           <children>
+                              <HBox alignment="CENTER" layoutX="-1.0" layoutY="-1.0" prefHeight="175.0" prefWidth="902.0" spacing="30.0">
+                                 <children>
+                                    <Button layoutX="30.0" layoutY="24.0" mnemonicParsing="false" onAction="#addItemClicked" text="Add Item" />
+                                    <Button layoutX="130.0" layoutY="24.0" mnemonicParsing="false" onAction="#removeItemClicked" text="Remove Item" />
+                                    <Button layoutX="254.0" layoutY="24.0" mnemonicParsing="false" onAction="#moveLeftClicked" text="Move Item Left" />
+                                    <Button layoutX="382.0" layoutY="24.0" mnemonicParsing="false" onAction="#moveRightClicked" text="Move Item Right" />
+                                    <Button layoutX="516.0" layoutY="24.0" mnemonicParsing="false" onAction="#importClicked" text="Import Board" />
+                                    <Button layoutX="635.0" layoutY="24.0" mnemonicParsing="false" onAction="#exportClicked" text="Export Board" />
+                                    <Button layoutX="635.0" layoutY="24.0" mnemonicParsing="false" onAction="#clearClicked" text="Clear Board" />
+                                    <Button layoutX="635.0" layoutY="24.0" mnemonicParsing="false" onAction="#aboutClicked" text="About" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+                <AnchorPane fx:id="cardView" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="700.0">
+                     <children>
+                        <TextArea fx:id="cardDescriptionView" editable="false" layoutX="-1.0" layoutY="47.0" prefHeight="153.0" prefWidth="700.0" wrapText="true" />
+                        <Label fx:id="cardNameView" alignment="CENTER" layoutX="231.0" layoutY="1.0" prefHeight="46.0" prefWidth="236.0">
+                           <font>
+                              <Font name="Alef Bold" size="28.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

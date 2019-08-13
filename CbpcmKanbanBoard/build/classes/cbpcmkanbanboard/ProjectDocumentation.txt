@@ -1,0 +1,46 @@
+﻿UI Development: This project was created using JavaFX. There are two .fxml documents in the project including View.fxml and AddCard.fxml
+
+Architecture:		
+	Model { Board.java }
+	Views	{ View.fxml, AddCard.fxml }
+	Controllers { MainController.java, AddCardController.java }
+								
+Requirements:
+1.Object oriented elements that you write the code for: 
+	a. 	Classes - 
+			Card.java, Board.java, AbstractModel.java, MainController.java, AddCardController.java, CbpcmKanbanBoard.java 
+	b. 	Subclasses - 
+			MainController.java is a subclass of Serializer.java
+			(visible on line 277 and 294 of MainController.java)
+	c. 	At least one abstract class - 
+			Serializer.java is abstract
+			(visible on line 318 and 344 of MainController.java)
+	d. 	At least one Interface -
+			AboutInfo.java is an interface
+                        (used in MainController.java on line 314)
+
+2.Code elements that you utilize: 
+	a.	One or more collection classes - 
+			ArrayLists in Board and MainController
+	b.	Exception Handling - 
+			IOException, ClassNotFoundException 
+			(MainController - lines 331,335,359,etc.)
+
+3.The application must have a clearly defined model (as in the M in MVC) - 
+	Board.java is the model. It holds all the Cards for each table. I made the
+        Card class just to have a good separation of code for readability and expandability.
+
+4.The UI must utilize multiple scenes and at least one of the scenes will have the contents of the scene graph changed based on the application state - View.fxml, AddCard.fxml
+	This project has a main "View" scene that shows the main Kanban Board and all the control.
+	It also has an alternate "AddCard" scene which opens when you press the add card button.
+	(The add card button's event is handled on line 170 of MainController.java which opens 
+	the AddCard Scene)
+
+5.There must be a way to access “About” information that includes information about you and the application -
+	The "About" information is included in a popup dialog box which is opened by pressing the About button, triggering an action on MainController(lines 309-319)
+
+6.The application must save data and load data. The target for saving/loading data can be files, a network service, and/or a database. - 
+	The application has Import and Export Board buttons on the main view. The Import button opens 
+	a FileChooser dialog to open a serialized kanban board file and deserializes it, and the Export 
+	button opens a FileChooser save dialog to save a serialized kanban board to the computer's disk
+	(MainController.java lines 269-296)
